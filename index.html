@@ -15,7 +15,7 @@
    <section>
       <div class="container">
          <div class="cart">
-            <div class="col-md-12 col-lg-10 mx-auto">
+            <div id="product-list" class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
@@ -75,9 +75,30 @@
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <button onclick="checkOutBtn()" type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+
+            </div>
+            <div id="purchesConfirmation">
+               <h1 class="text-center">Your Bill is</h1>
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5 id="subTotalNew">$1,278</h5>
+                        <h5 id="vat-new">$0</h5>
+                        <h5 id="total-new">$1,278</h5>
+                     </div>
+                  </div>
                </div>
             </div>
+
          </div>
       </div>
    </section>
@@ -110,17 +131,28 @@
 
          const subTotal = getInputProduct('phone') * 1219 + getInputProduct('case') * 59;
          document.getElementById('subTotal').innerText = '$' + subTotal;
+         document.getElementById('subTotalNew').innerText = '$' + subTotal;
          // 10% vat including
          const tax = subTotal * 0.1;
          document.getElementById('vat').innerText = '$' + Math.round(tax);
+         document.getElementById('vat-new').innerText = '$' + Math.round(tax);
          const totalSum = tax + subTotal;
          document.getElementById('total').innerText = '$' + totalSum;
+         document.getElementById('total-new').innerText = '$' + totalSum;
+
+         // checkOutBtn();
       }
 
       function getInputProduct(product) {
          const productNewInput = document.getElementById(product + '-count');
          const productNewCount = parseInt(productNewInput.value);
          return productNewCount;
+      }
+      function checkOutBtn() {
+         const productList = document.getElementById('product-list');
+         productList.style.display = 'none';
+         const purchesConfirmation = document.getElementById('purchesConfirmation');
+         purchesConfirmation.style.display = 'block';
       }
       // function productTotal() {
 
