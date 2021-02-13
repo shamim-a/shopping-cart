@@ -31,6 +31,7 @@ body{
 }
 .btn-default{
 	background-color: #fff;
+	margin: 0px 7px;
 }
 .cart-item .form-control{
 	background-color: #F6F5FA;
