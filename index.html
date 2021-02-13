@@ -82,26 +82,26 @@
    <script>
       function handlerPhoneQuantity(product, quantityChange) {
 
-         const phoneInputs = document.getElementById(product + '-count');
-         const phoneCount = parseInt(phoneInputs.value);
-         let phoneNewCount = phoneCount;
-         // const phoneCountAdd = parseInt(phoneCount.value) + 1;
+         const productInputs = document.getElementById(product + '-count');
+         const productCount = parseInt(productInputs.value);
+         let productNewCount = productCount;
+         // const productCountAdd = parseInt(productCount.value) + 1;
          if (quantityChange == true) {
-            phoneNewCount = phoneCount + 1;
+            productNewCount = productCount + 1;
          }
-         if (quantityChange == false && phoneCount > 0) {
-            phoneNewCount = phoneCount - 1;
+         if (quantityChange == false && productCount > 0) {
+            productNewCount = productCount - 1;
          }
-         phoneInputs.value = phoneNewCount;
-         // const phonePrice = phoneNewCount * 1219;
-         let phonePrice = 0;
+         productInputs.value = productNewCount;
+         // const productPrice = productNewCount * 1219;
+         let productPrice = 0;
          if (product == "phone") {
-            phonePrice = phoneNewCount * 1219;
+            productPrice = productNewCount * 1219;
          }
          if (product == "case") {
-            phonePrice = phoneNewCount * 59;
+            productPrice = productNewCount * 59;
          }
-         document.getElementById(product + '-price').innerText = '$' + phonePrice;
+         document.getElementById(product + '-price').innerText = '$' + productPrice;
       }
 
       /* function handlerPhoneQuantity(Quantity_Change) {
